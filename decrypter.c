@@ -44,6 +44,7 @@ void decrypter(){
 			fseek(fpero, 0, SEEK_SET);
 			fread(&lettrePero, sizeof(char), sizeof(char), fpero);
 		}
+		if(feof(fsource)) break;
 
 		char res = lettreLu + lettrePero;
 		fwrite(&res, sizeof(char), sizeof(char), fout);

@@ -37,20 +37,20 @@ void encrypter(){
 		//on lit les deux fichiers conjointement
 		fread(&lettreLu, sizeof(char), sizeof(char), fsource);
 		fread(&lettrePero, sizeof(char), sizeof(char), fpero);
-
+		
 		//si on arrive à la fin du fichier perroquet, on retourne au début
 		if (feof(fpero)){
 			fseek(fpero, 0, SEEK_SET);
 			fread(&lettrePero, sizeof(char), sizeof(char), fpero);
 		}
-
+		if(feof(fsource)) break;
 		//printf("\n(%d)val de pero : %c\n",lettrePero, lettrePero);
 		char res = lettreLu - lettrePero;
-		//printf("\n(%d)%c chiffrée par (%d)%c donne : (%d)%c",lettreLu, lettreLu, lettrePero, lettrePero, res, res);
+		//printf("\n(%d)%c chiffrée par (%d)%c donne : (%d)%c\n\n",lettreLu, lettreLu, lettrePero, lettrePero, res, res);
 		fwrite(&res, sizeof(char), sizeof(char), fout);
 
 	} while(!feof(fsource));
-
+	
 	int retClosefsource = fclose(fsource);
 	int retClosefpero = fclose(fpero);
 	int retClosefout = fclose(fout);
