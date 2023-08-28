@@ -14,7 +14,7 @@ void decrypter(){
 
 	fpero = fopen("peroq.def", "rt");
 	fsource = fopen("dest.crt", "rt");
-	fout = fopen("decrypt.txt", "w+t");
+	fout = fopen("source.txt", "w+t");
 
 	if (fsource == NULL)
 	{

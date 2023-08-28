@@ -6,14 +6,12 @@ int main(){
 	int choix = menu();
 	switch(choix){
 		case 1 :
-			decrypter();
-			printf("Déchiffrement réussi!\n");
-		break;
-		case 2 :
 			encrypter();
 			printf("Chiffrement réussi!\n");
 		break;
-		case 3 : 
+		case 2 :
+			decrypter();
+			printf("Déchiffrement réussi!\n");
 		break;
 		default:
 			printf("Erreur dans le choix utilisateur");
@@ -26,7 +24,7 @@ int main(){
 int menu(){
 	int choix = 0;
 	printf("\n_________________Bienvenue sur le programme de chiffrement_______________\nQue voulez-vous faire?\n\n");
-	printf("\t1-Créer votre code perroquet\n\t2-Chiffrer votre fichier\n\t3-Déchiffrer votre fichier\nVotre choix: ");
+	printf("\t1-Chiffrer votre fichier\n\t2-Déchiffrer votre fichier\nVotre choix: ");
 	scanf("%d", &choix);
 	printf("\n");
 	while(choix<1 || choix>3){

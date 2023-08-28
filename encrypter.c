@@ -54,6 +54,7 @@ void encrypter(){
 	int retClosefsource = fclose(fsource);
 	int retClosefpero = fclose(fpero);
 	int retClosefout = fclose(fout);
-
+	//suppression du fichier source après le chiffrement
+	remove("./source.txt");
 }
 
