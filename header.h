@@ -7,6 +7,7 @@
 int menu(void);
 int nouveauCaractere(char a, char b);
 void encrypter(void);
+void decrypter(void);
 
 #endif
 
