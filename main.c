@@ -2,11 +2,6 @@
 #include <stdlib.h>
 #include "header.h"
 
-
-int menu(void);
-int nouveauCaractere(char a, char b);
-void encrypter(void);
-
 int main(){
 	int choix = menu();
 	switch(choix){
