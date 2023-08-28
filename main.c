@@ -2,14 +2,30 @@
 #include <stdlib.h>
 #include "header.h"
 
-void lirePerroquet(char *mdp);
+
 int menu(void);
-int chiffrer(char a, char b);
+int nouveauCaractere(char a, char b);
+void encrypter(void);
 
 int main(){
 	int choix = menu();
+	switch(choix){
+		case 1 :
+		break;
+		case 2 :
+			encrypter();
+			printf("Chiffrement réussi!\n");
+		break;
+		case 3 : 
+		break;
+		default:
+			printf("Erreur dans le choix utilisateur");
+			return EXIT_FAILURE;
+		break;
+	}
+}
 
-	int head = 0;
+void encrypter(){
 
 	FILE *fsource = NULL;
 	FILE *fpero = NULL;
@@ -46,14 +62,14 @@ int main(){
 		fread(&lettrePero, sizeof(char), sizeof(char), fpero);
 
 		//si on arrive à la fin du fichier perroquet, on retourne au début
-		if (lettrePero == 10){
+		if (feof(fpero)){
 			fseek(fpero, 0, SEEK_SET);
 			fread(&lettrePero, sizeof(char), sizeof(char), fpero);
 		}
 
 		//printf("\n(%d)val de pero : %c\n",lettrePero, lettrePero);
-		char res = chiffrer(lettreLu, lettrePero);
-		printf("\n(%d)%c chiffrée par (%d)%c donne : (%d)%c",lettreLu, lettreLu, lettrePero, lettrePero, res, res);
+		char res = nouveauCaractere(lettreLu, lettrePero);
+		//printf("\n(%d)%c chiffrée par (%d)%c donne : (%d)%c",lettreLu, lettreLu, lettrePero, lettrePero, res, res);
 		fwrite(&res, sizeof(char), sizeof(char), fout);
 
 	} while(!feof(fsource));
@@ -65,10 +81,8 @@ int main(){
 	return 0;
 }
 
-int chiffrer(char a, char b){
-	int res = a-b;
-	if(res<0) res = 127+res;
-	return res;
+int nouveauCaractere(char a, char b){
+	return a-b;
 }
 
 int menu(){
@@ -76,33 +90,11 @@ int menu(){
 	printf("\n_________________Bienvenue sur le programme de chiffrement_______________\nQue voulez-vous faire?\n\n");
 	printf("\t1-Créer votre code perroquet\n\t2-Chiffrer votre fichier\n\t3-Déchiffrer votre fichier\n");
 	scanf("%d", &choix);
-
+	while(choix<1 || choix>3){
+		printf("\nErreur, vous devez choisir une option entre 1 et 3\nVeuillez recommencer: ");
+		scanf("%d", &choix);
+	}
 	return choix;
 }
 
-//lit le fichier peroq.def et affecte son contenu dans la variable passée en argument
-void lirePerroquet(char *mdp){
-	FILE *fp = NULL;
-	int i = 0;
-	char lettreLu = '\0';
-	fp = fopen("peroq.def", "rt");
-
-	if (fp == NULL){
-		printf("Erreur, le fichier perroquet n'existe pas");
-		return EXIT_FAILURE;
-	}
-	
-	do {
-		fread(&lettreLu, sizeof(lettreLu), sizeof(char), fp);
-		mdp[i] = lettreLu;
-		i++;
-	} while(!feof(fp));
-	
-	int retClose = fclose(fp);
-	if(retClose != 0) {
-		printf("Erreur close");
-		return EXIT_FAILURE;
-	}
-	//printf("%s", mdp);
-}
 
