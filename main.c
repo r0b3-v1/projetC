@@ -13,6 +13,10 @@ int main(){
 			decrypter();
 			printf("Déchiffrement réussi!\n");
 		break;
+		case 3 :
+			ecrirePeroq();
+			printf("Le fichier peroq.def a été mis à jour!\n");
+		break;
 		default:
 			printf("Erreur dans le choix utilisateur");
 			return EXIT_FAILURE;
@@ -24,7 +28,7 @@ int main(){
 int menu(){
 	int choix = 0;
 	printf("\n_________________Bienvenue sur le programme de chiffrement_______________\nQue voulez-vous faire?\n\n");
-	printf("\t1-Chiffrer votre fichier\n\t2-Déchiffrer votre fichier\nVotre choix: ");
+	printf("\t1-Chiffrer votre fichier\n\t2-Déchiffrer votre fichier\n\t3-écrire votre fichier perroquet\nVotre choix: ");
 	scanf("%d", &choix);
 	printf("\n");
 	while(choix<1 || choix>3){
