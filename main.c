@@ -7,11 +7,11 @@ int main(){
 	switch(choix){
 		case 1 :
 			encrypter();
-			printf("Chiffrement réussi!\n");
+			printf("Chiffrement réussi! Le résultat a été mis dans le fichier dest.crt\n");
 		break;
 		case 2 :
 			decrypter();
-			printf("Déchiffrement réussi!\n");
+			printf("Déchiffrement réussi! Le résultat a été mis dans le fichier source.txt\n");
 		break;
 		case 3 :
 			ecrirePeroq();
@@ -27,8 +27,8 @@ int main(){
 
 int menu(){
 	int choix = 0;
-	printf("\n_________________Bienvenue sur le programme de chiffrement_______________\nQue voulez-vous faire?\n\n");
-	printf("\t1-Chiffrer votre fichier\n\t2-Déchiffrer votre fichier\n\t3-écrire votre fichier perroquet\nVotre choix: ");
+	printf("\n_________________Bienvenue sur le programme de chiffrement_______________\n\nQue voulez-vous faire?\n\n");
+	printf("\t1-Chiffrer votre fichier\n\t2-Déchiffrer votre fichier\n\t3-écrire votre fichier perroquet\n\nVotre choix: ");
 	scanf("%d", &choix);
 	printf("\n");
 	while(choix<1 || choix>3){
