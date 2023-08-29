@@ -14,11 +14,11 @@ void decrypter(){
 
 	fpero = fopen("peroq.def", "rt");
 	fsource = fopen("dest.crt", "rt");
-	fout = fopen("source.txt", "w+t");
+	
 
 	if (fsource == NULL)
 	{
-		printf("Impossible d'ouvrir le fichier source.txt\n");
+		printf("Impossible d'ouvrir le fichier dest.crt\n");
 		exit(1);
 	}
 
@@ -27,10 +27,11 @@ void decrypter(){
 		printf("Impossible d'ouvrir le fichier peroq.def\n");
 		exit(1);
 	}
-
+	
+	fout = fopen("source.txt", "w+t");
 	if (fout == NULL)
 	{
-		printf("Impossbible d'ouvrir ou de créer le fichier decrypt.txt\n");
+		printf("Impossbible d'ouvrir ou de créer le fichier source.txt\n");
 		exit(1);
 	}
 

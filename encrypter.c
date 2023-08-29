@@ -13,7 +13,7 @@ void encrypter(){
 
 	fpero = fopen("peroq.def", "rt");
 	fsource = fopen("source.txt", "rt");
-	fout = fopen("dest.crt", "w+t");
+	
 
 	if (fsource == NULL)
 	{
@@ -26,7 +26,9 @@ void encrypter(){
 		printf("Impossible d'ouvrir le fichier peroq.def\n");
 		exit(1);
 	}
-
+	
+	fout = fopen("dest.crt", "w+t");
+	
 	if (fout == NULL)
 	{
 		printf("Impossbible d'ouvrir ou de créer le fichier dest.crt\n");
@@ -44,9 +46,7 @@ void encrypter(){
 			fread(&lettrePero, sizeof(char), sizeof(char), fpero);
 		}
 		if(feof(fsource)) break;
-		//printf("\n(%d)val de pero : %c\n",lettrePero, lettrePero);
 		char res = lettreLu - lettrePero;
-		//printf("\n(%d)%c chiffrée par (%d)%c donne : (%d)%c\n\n",lettreLu, lettreLu, lettrePero, lettrePero, res, res);
 		fwrite(&res, sizeof(char), sizeof(char), fout);
 
 	} while(!feof(fsource));
