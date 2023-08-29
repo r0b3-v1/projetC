@@ -11,21 +11,11 @@ void encrypter(){
 	char lettrePero = '\0';
 	char lettreLu = '\0';
 
+	testFichier("peroq.def");
+	testFichier("source.txt");
+
 	fpero = fopen("peroq.def", "rt");
 	fsource = fopen("source.txt", "rt");
-	
-
-	if (fsource == NULL)
-	{
-		printf("Impossible d'ouvrir le fichier source.txt\n");
-		exit(1);
-	}
-
-	if (fpero == NULL) 
-	{
-		printf("Impossible d'ouvrir le fichier peroq.def\n");
-		exit(1);
-	}
 	
 	fout = fopen("dest.crt", "w+t");
 	

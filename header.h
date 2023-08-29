@@ -8,6 +8,7 @@ int menu(void);
 void encrypter(void);
 void decrypter(void);
 void ecrirePeroq(void);
+int testFichier(char *path);
 
 #endif
 

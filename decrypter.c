@@ -12,21 +12,11 @@ void decrypter(){
 	char lettrePero = '\0';
 	char lettreLu = '\0';
 
+	testFichier("peroq.def");
+	testFichier("dest.crt");
+
 	fpero = fopen("peroq.def", "rt");
 	fsource = fopen("dest.crt", "rt");
-	
-
-	if (fsource == NULL)
-	{
-		printf("Impossible d'ouvrir le fichier dest.crt\n");
-		exit(1);
-	}
-
-	if (fpero == NULL) 
-	{
-		printf("Impossible d'ouvrir le fichier peroq.def\n");
-		exit(1);
-	}
 	
 	fout = fopen("source.txt", "w+t");
 	if (fout == NULL)
