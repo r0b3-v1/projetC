@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "header.h"
 
-void encrypter()
+int encrypter()
 {
 
 	FILE *fsource = NULL;
@@ -14,6 +14,7 @@ void encrypter()
 
 	testFichier("peroq.def");
 	testFichier("source.txt");
+	if(checkPeroq()) return 1;
 
 	fpero = fopen("peroq.def", "rt");
 	fsource = fopen("source.txt", "rt");
@@ -52,4 +53,5 @@ void encrypter()
 	int retClosefout = fclose(fout);
 	// suppression du fichier source après le chiffrement
 	remove("./source.txt");
+	return 0;
 }

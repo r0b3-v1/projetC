@@ -5,10 +5,10 @@
 
 //on met nos prototypes ici
 int menu(void);
-void encrypter(void);
-void decrypter(void);
+int encrypter(void);
+int decrypter(void);
 void ecrirePeroq(void);
 int testFichier(char *path);
+int checkPeroq();
 
 #endif
-

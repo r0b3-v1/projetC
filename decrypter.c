@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "header.h"
 
-void decrypter()
+int decrypter()
 {
 
 	FILE *fsource = NULL;
@@ -14,6 +14,7 @@ void decrypter()
 
 	testFichier("peroq.def");
 	testFichier("dest.crt");
+	if(checkPeroq()) return 1;
 
 	fpero = fopen("peroq.def", "rt");
 	fsource = fopen("dest.crt", "rt");
@@ -49,4 +50,5 @@ void decrypter()
 	int retClosefsource = fclose(fsource);
 	int retClosefpero = fclose(fpero);
 	int retClosefout = fclose(fout);
+	return 0;
 }
